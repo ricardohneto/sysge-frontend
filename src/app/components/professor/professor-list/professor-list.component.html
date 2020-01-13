@@ -1,0 +1,40 @@
+<app-professor></app-professor>
+
+<br>
+
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h3>Professores</h3>
+    </div>
+    <div class="card-body">
+      <table class="table table-hover">
+        <thead>
+          <tr class="text-center">
+            <th>NOME</th>
+            <th>MATRICULA</th>
+            <th>ÁREA DE ATUAÇÃO</th>
+            <th>IDADE</th>
+            <th>AÇÕES</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let professor of professores "class="text-center">
+            <td>{{ professor.nome }}</td>
+            <td>{{ professor.matricula }}</td>
+            <td>{{ professor.area }}</td>
+            <td>{{ professor.idade }}</td>
+            <td>
+              <button (click)="Editar(professor)" type="button" class="btn btn-outline-info">
+                <i class="fa fa-edit" aria-hidden="true"></i>
+              </button>
+              <button (click)="Delete(professor)" type="button" class="btn btn-outline-danger">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

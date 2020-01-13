@@ -1,0 +1,36 @@
+<app-disciplina></app-disciplina>
+
+<br>
+
+<div class="container col-md-6">
+  <div class="card">
+    <div class="card-header">
+      <h3>Cadastrar Disciplina</h3>
+    </div>
+    <div class="card-body">
+      <form action="">
+        <div class="form-group">
+          <label for="">Nome</label>
+          <input [(ngModel)]="disciplina.nome" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="">Descrição</label>
+          <input [(ngModel)]="disciplina.descricao" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="">Carga Horaria</label>
+          <input [(ngModel)]="disciplina.cargaHoraria" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+        </div> 
+        <div class="form-group">
+            <label for="">Ativa</label>
+            <input [(ngModel)]="disciplina.ativa" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+        </div> 
+        <div class="form-group">
+            <label for="">Matricula do Professor</label>
+            <input [(ngModel)]="disciplina.idProfessor" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+        </div> 
+        <button (click)="Cadastrar()" class="btn btn-outline-danger">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+</div>
