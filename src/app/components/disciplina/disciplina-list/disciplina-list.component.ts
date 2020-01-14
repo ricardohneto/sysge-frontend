@@ -34,7 +34,7 @@ export class DisciplinaListComponent implements OnInit {
   }
 
   Matricular(disciplina:Disciplina){
-    this.service.matricular(disciplina);
+    this.service.setDisciplina(disciplina);
     this.router.navigate(["disciplinas/matricular"])
   }
 

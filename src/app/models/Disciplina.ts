@@ -5,4 +5,5 @@ export class Disciplina{
     cargaHoraria: number;
     ativa: number;
     idProfessor: String;
+    alunos: any[];
 }

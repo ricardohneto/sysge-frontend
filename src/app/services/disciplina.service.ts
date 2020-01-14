@@ -31,8 +31,8 @@ export class DisciplinaService {
     return this.http.delete<Disciplina>(this.URL+"/"+disciplina.id);
   }
 
-  matricular(disciplina:Disciplina){
-    return this.http.put<Disciplina>(this.URL+"/matricular/"+disciplina.id, disciplina);
+  matricular(disciplina:Disciplina, matricula:String){
+    return this.http.put<Disciplina>(this.URL+"/matricular/"+matricula, disciplina);
   }
 
   setDisciplina(disciplina:Disciplina){

@@ -11,19 +11,21 @@ import { Disciplina } from 'app/models/Disciplina';
 })
 export class DisciplinaMatricularComponent implements OnInit {
 
-  aluno: Aluno = new Aluno();
+  private disciplina: Disciplina = new Disciplina();
+  private matricula: String;
   constructor(private router:Router, private service:DisciplinaService) { }
 
   ngOnInit() {
   }
 
-  // RealizarMatricula(aluno: Aluno){
-  //   this.service.realizarMatricula(aluno)
-  //   .subscribe(data => {
-  //     this.aluno = data;
-  //     alert("Matriculado com Sucesso!!!");
-  //     this.router.navigate[("disciplinas")];
-  //   })
-  // }
+  RealizarMatricula(){
+    this.disciplina = this.service.getDisciplina();
+    this.service.matricular(this.disciplina, this.matricula)
+    .subscribe(data => {
+      this.disciplina = data;
+      alert("Matriculado com Sucesso!!!");
+      this.router.navigate[("disciplinas")];
+    })
+  }
 
 }
