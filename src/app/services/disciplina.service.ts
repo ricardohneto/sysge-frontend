@@ -6,6 +6,7 @@ import { Aluno } from 'app/models/Aluno';
 @Injectable()
 export class DisciplinaService {
 
+  private disciplina: Disciplina = new Disciplina();
   constructor(private http:HttpClient) { }
 
   URL='http://localhost:8080/api/disciplinas';
@@ -22,12 +23,8 @@ export class DisciplinaService {
     return this.http.post<Disciplina>(this.URL, disciplina);
   }
 
-  getDisciplinaId(id:number){
-    return this.http.get<Disciplina>(this.URL+"/"+id);
-  }
-
   atualizar(disciplina:Disciplina){
-    return this.http.put<Disciplina>(this.URL+"/"+disciplina.id, disciplina);
+    return this.http.put<Disciplina>(this.URL+"/", disciplina);
   }
 
   deletar(disciplina:Disciplina){
@@ -36,6 +33,14 @@ export class DisciplinaService {
 
   matricular(disciplina:Disciplina){
     return this.http.put<Disciplina>(this.URL+"/matricular/"+disciplina.id, disciplina);
+  }
+
+  setDisciplina(disciplina:Disciplina){
+    this.disciplina = disciplina;
+  }
+
+  getDisciplina(){
+    return this.disciplina;
   }
 
 }

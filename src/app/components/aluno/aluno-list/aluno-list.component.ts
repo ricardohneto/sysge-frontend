@@ -20,9 +20,9 @@ export class AlunoListComponent implements OnInit {
     })
   }
 
-  Editar(aluno:Aluno):void{
-    localStorage.setItem("matricula",aluno.matricula.toString());
-    this.router.navigate(["alunos/editar"]);
+  Editar(aluno:Aluno){
+    this.service.setAluno(aluno);
+    this.router.navigate(['/alunos/editar']);
   }
 
   Delete(aluno:Aluno){

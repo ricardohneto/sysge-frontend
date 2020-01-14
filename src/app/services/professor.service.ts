@@ -6,6 +6,7 @@ import { Professor } from 'app/models/Professor';
 @Injectable()
 export class ProfessorService {
 
+  professor: Professor = new Professor();
   constructor(private http:HttpClient) { }
 
   URL='http://localhost:8080/api/professores';
@@ -27,11 +28,19 @@ export class ProfessorService {
   }
 
   atualizar(professor:Professor){
-    return this.http.put<Professor>(this.URL+"/"+professor.matricula, professor);
+    return this.http.put<Professor>(this.URL+"/", professor);
   }
 
   deletar(professor:Professor){
     return this.http.delete<Professor>(this.URL+"/"+professor.matricula);
+  }
+
+  setProfessor(professor:Professor){
+    this.professor = professor;
+  }
+
+  getProfessor(){
+    return this.professor;
   }
 
 }

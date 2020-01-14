@@ -18,11 +18,7 @@ export class DisciplinaEditComponent implements OnInit {
   }
 
   Editar() {
-    let id = localStorage.getItem("id");
-    this.service.getDisciplinaId(+id)
-    .subscribe(data =>{
-      this.disciplina = data;
-    })
+    this.disciplina = this.service.getDisciplina();
   }
 
   Atualizar(disciplina:Disciplina) {

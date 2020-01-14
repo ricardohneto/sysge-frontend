@@ -20,8 +20,8 @@ export class ProfessorListComponent implements OnInit {
     })
   }
 
-  Editar(professor:Professor):void{
-    localStorage.setItem("matricula",professor.matricula.toString());
+  Editar(professor:Professor){
+    this.service.setProfessor(professor);
     this.router.navigate(["professores/editar"]);
   }
 

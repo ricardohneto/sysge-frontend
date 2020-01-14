@@ -20,8 +20,8 @@ export class DisciplinaListComponent implements OnInit {
     })
   }
 
-  Editar(disciplina: Disciplina):void{
-    localStorage.setItem("id",disciplina.id.toString());
+  Editar(disciplina: Disciplina){
+    this.service.setDisciplina(disciplina);
     this.router.navigate(["disciplinas/editar"]);
   }
 

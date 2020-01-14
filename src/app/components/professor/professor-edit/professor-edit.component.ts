@@ -18,11 +18,7 @@ export class ProfessorEditComponent implements OnInit {
   }
 
   Editar(){
-    let matricula = localStorage.getItem("matricula");
-    this.service.getProfessorMatricula(matricula)
-    .subscribe(data => {
-      this.professor = data;
-    })
+    this.professor = this.service.getProfessor();
   }
 
   Atualizar(professor: Professor){
@@ -30,7 +26,7 @@ export class ProfessorEditComponent implements OnInit {
     .subscribe(data => {
       this.professor = data;
       alert("Atualizado com Sucesso!!!");
-      this.router.navigate[("professores")];
+      this.router.navigate(["professores"]);
     })
   }
 }

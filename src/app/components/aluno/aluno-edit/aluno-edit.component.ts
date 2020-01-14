@@ -18,11 +18,7 @@ export class AlunoEditComponent implements OnInit {
   }
 
   Editar(){
-    let matricula = localStorage.getItem("matricula");
-    this.service.getAlunoMatricula(matricula)
-    .subscribe(data => {
-      this.aluno = data;
-    })
+    this.aluno = this.service.getAluno();
   }
 
   Atualizar(aluno: Aluno){
