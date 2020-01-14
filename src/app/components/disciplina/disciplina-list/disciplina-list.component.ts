@@ -34,13 +34,8 @@ export class DisciplinaListComponent implements OnInit {
   }
 
   Matricular(disciplina:Disciplina){
-    this.service.matricular(disciplina)
-    .subscribe(data => {
-      if(data == null){
-        alert("Certifique-se que Exista Alunos!")
-      }
-      this.router.navigate(["alunos/detalhes"]);
-    })
+    this.service.matricular(disciplina);
+    this.router.navigate(["disciplinas/matricular"])
   }
 
 }
