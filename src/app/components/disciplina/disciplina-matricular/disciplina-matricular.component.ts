@@ -24,7 +24,11 @@ export class DisciplinaMatricularComponent implements OnInit {
     .subscribe(data => {
       this.disciplina = data;
       alert("Matriculado com Sucesso!!!");
-      this.router.navigate[("disciplinas")];
+      this.router.navigate(["disciplinas"]);
+    },
+    err => {
+      console.log(err);
+      alert(err.error.message); 
     })
   }
 

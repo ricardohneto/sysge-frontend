@@ -27,6 +27,10 @@ export class DisciplinaEditComponent implements OnInit {
       this.disciplina = data;
       alert("Atualizado Com Sucesso!!!");
       this.router.navigate(["disciplinas"]);
+    },
+    err => {
+      console.log(err);
+      alert(err.error.message); 
     })
   }
 

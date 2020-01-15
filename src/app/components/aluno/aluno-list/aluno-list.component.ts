@@ -30,6 +30,10 @@ export class AlunoListComponent implements OnInit {
     .subscribe(data => {
       this.alunos=this.alunos.filter(a=>a!==aluno);
       alert("Aluno Excluido com Sucesso!");
+    },
+    err => {
+      console.log(err); 
+      alert(err.error.message); 
     })
   }
 

@@ -22,6 +22,10 @@ export class AlunoFormComponent implements OnInit {
     .subscribe(data => {
       alert("Cadastrado com Sucesso!");
       this.router.navigate(["alunos"]);
+    },
+    err => {
+      console.log(err);
+      alert(err.error.message); 
     })
   }
 

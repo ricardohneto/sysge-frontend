@@ -27,6 +27,10 @@ export class AlunoEditComponent implements OnInit {
       this.aluno = data;
       alert("Atualizado com Sucesso!!!");
       this.router.navigate(["alunos"]);
+    },
+    err => {
+      console.log(err);
+      alert(err.error.message); 
     })
   }
 

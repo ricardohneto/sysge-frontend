@@ -30,6 +30,10 @@ export class DisciplinaListComponent implements OnInit {
     .subscribe(data => {
       this.disciplinas=this.disciplinas.filter(d=>d!==disciplina);
       alert("Disciplina Excluida com Sucesso!");
+    },
+    err => {
+      console.log(err);
+      alert(err.error.message); 
     })
   }
 

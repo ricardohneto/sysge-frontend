@@ -22,6 +22,10 @@ export class ProfessorFormComponent implements OnInit {
     .subscribe(data => {
       alert("Cadastrado com Sucesso!");
       this.router.navigate(["professores"]);
+    },
+    err => {
+      console.log(err);
+      alert(err.error.message); 
     })
   }
 

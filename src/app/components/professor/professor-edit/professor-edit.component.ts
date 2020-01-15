@@ -27,6 +27,10 @@ export class ProfessorEditComponent implements OnInit {
       this.professor = data;
       alert("Atualizado com Sucesso!!!");
       this.router.navigate(["professores"]);
+    },
+    err => {
+      console.log(err);
+      alert(err.error.message); 
     })
   }
 }

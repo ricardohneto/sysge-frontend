@@ -22,6 +22,10 @@ export class DisciplinaFormComponent implements OnInit {
     .subscribe(data => {
       alert("Cadastrada com Sucesso!");
       this.router.navigate(["disciplinas"]);
+    },
+    err => {
+      console.log(err);
+      alert(err.error.message); 
     })
   }
 

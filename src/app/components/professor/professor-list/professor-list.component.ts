@@ -30,6 +30,10 @@ export class ProfessorListComponent implements OnInit {
     .subscribe(data => {
       this.professores=this.professores.filter(p=>p!==professor);
       alert("Professor Excluido com Sucesso!");
+    },
+    err => {
+      console.log(err);
+      alert(err.error.message); 
     })
   }
 
