@@ -20,7 +20,11 @@
           <tr *ngFor="let professor of professores" class="text-center">
             <td>{{ professor.nome }}</td>
             <td>{{ professor.matricula }}</td>
-            <td>{{ professor.nomeDisciplinas }}</td>
+
+            <td *ngIf="professor.nomeDisciplinas == ''" style="color: red;">Sem Disciplinas Ativas</td>
+              
+            <td *ngIf="!(professor.nomeDisciplinas == null)">{{ professor.nomeDisciplinas }}</td>
+
           </tr>
         </tbody>
       </table>

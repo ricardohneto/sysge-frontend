@@ -22,7 +22,11 @@
             <td>{{ aluno.nome }}</td>
             <td>{{ aluno.matricula }}</td>
             <td>{{ aluno.idade }}</td>
-            <td>{{ aluno.nomeDisciplinas }}</td>
+
+            <td *ngIf="aluno.nomeDisciplinas == ''" style="color: red;">Sem Disciplinas Ativas</td>
+              
+            <td *ngIf="!(aluno.nomeDisciplinas == null)">{{ aluno.nomeDisciplinas }}</td>
+    
           </tr>
         </tbody>
       </table>
