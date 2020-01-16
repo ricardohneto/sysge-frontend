@@ -32,7 +32,6 @@ export class DisciplinaListComponent implements OnInit {
       alert("Disciplina Excluida com Sucesso!");
     },
     err => {
-      console.log(err);
       alert(err.error.message); 
     })
   }

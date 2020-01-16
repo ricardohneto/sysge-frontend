@@ -27,7 +27,10 @@ export class DisciplinaMatricularComponent implements OnInit {
       this.router.navigate(["disciplinas"]);
     },
     err => {
-      console.log(err);
+      if(err.error.errors[0]){
+        alert(err.error.errors[0].defaultMessage);
+        return;
+      }
       alert(err.error.message); 
     })
   }

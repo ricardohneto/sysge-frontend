@@ -11,18 +11,18 @@
         <form action="">
           <div class="form-group">
             <label for="">Matricula</label>
-            <input id="matricula" name="matricula" type="text" class="form-control"
-          placeholder="Ex: 000000" required minlength="6" maxlength="6" #matricula="ngModel"
-          [(ngModel)]="aluno.matricula" [ngModelOptions]="{standalone: true}">
+            <input id="matriculaForm" name="matriculaForm" type="text" class="form-control"
+          placeholder="Ex: 000000" required minlength="6" maxlength="6" #matriculaForm="ngModel"
+          [(ngModel)]="matricula" [ngModelOptions]="{standalone: true}">
         
-          <div *ngIf="matricula.invalid && (matricula.dirty || matricula.touched)"
+          <div *ngIf="matriculaForm.invalid && (matriculaForm.dirty || matriculaForm.touched)"
           class="alert alert-danger">
         
-            <div *ngIf="matricula.errors.required">
+            <div *ngIf="matriculaForm.errors.required">
               Matricula é obrigatório
             </div>
 
-            <div *ngIf="(matricula.errors.maxlength || matricula.errors.minlength)">
+            <div *ngIf="(matriculaForm.errors.maxlength || matriculaForm.errors.minlength)">
               Necessario 6 números
             </div>
 
