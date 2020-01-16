@@ -30,6 +30,11 @@
               <button *ngIf="disciplina.ativa == 1" (click)="Matricular(disciplina)" type="button" class="btn btn-outline-success">
                 <i class="fa fa-user-plus" aria-hidden="true"></i>
               </button>
+
+              <button *ngIf="disciplina.ativa == 0" [disabled]="disciplina.ativa == 0" type="button" class="btn btn-outline-danger">
+                <i class="fa fa-user-plus" aria-hidden="true"></i>
+              </button>
+
               <button (click)="Editar(disciplina)" type="button" class="btn btn-outline-info">
                 <i class="fa fa-edit" aria-hidden="true"></i>
               </button>
