@@ -18,12 +18,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let disciplina of disciplinas" class="text-center">
-            <td>{{ disciplina.nome }}</td>
+          <tr *ngFor="let disciplina of disciplinas" class="text-center" >
+
+            <td *ngIf="disciplina.ativa == 1" style="color: green;" >{{ disciplina.nome }}</td>
+
+            <td *ngIf="disciplina.ativa == 0" style="color: red;" >{{ disciplina.nome }}</td>
+            
             <td>{{ disciplina.descricao }}</td>
             <td>{{ disciplina.cargaHoraria }}</td>
             <td>
-              <button (click)="Matricular(disciplina)" type="button" class="btn btn-outline-success">
+              <button *ngIf="disciplina.ativa == 1" (click)="Matricular(disciplina)" type="button" class="btn btn-outline-success">
                 <i class="fa fa-user-plus" aria-hidden="true"></i>
               </button>
               <button (click)="Editar(disciplina)" type="button" class="btn btn-outline-info">
