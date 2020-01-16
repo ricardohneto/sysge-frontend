@@ -25,7 +25,7 @@
             <td *ngIf="disciplina.ativa == 0" style="color: red;" >{{ disciplina.nome }}</td>
             
             <td>{{ disciplina.descricao }}</td>
-            <td>{{ disciplina.cargaHoraria }}</td>
+            <td>{{ disciplina.cargaHoraria }} hrs</td>
             <td>
               <button *ngIf="disciplina.ativa == 1" (click)="Matricular(disciplina)" type="button" class="btn btn-outline-success">
                 <i class="fa fa-user-plus" aria-hidden="true"></i>
