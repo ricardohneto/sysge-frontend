@@ -22,6 +22,13 @@ export class ProfessorEditComponent implements OnInit {
   }
 
   Atualizar(professor: Professor){
+
+    if(professor.area == "" || professor.matricula == "" || 
+      professor.dataNascimento.toString() == "" || professor.nome == ""){
+        alert("Preencha Todos os Campos")
+        return;
+    }
+
     this.service.atualizar(professor)
     .subscribe(data => {
       this.professor = data;
@@ -29,7 +36,10 @@ export class ProfessorEditComponent implements OnInit {
       this.router.navigate(["professores"]);
     },
     err => {
-      console.log(err);
+      if(err.error.errors[0]){
+        alert(err.error.errors[0].defaultMessage);
+        return;
+      }
       alert(err.error.message); 
     })
   }

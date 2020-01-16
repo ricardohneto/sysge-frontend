@@ -1,7 +1,8 @@
 import { Aluno } from '../../../models/Aluno';
 import { AlunoService } from './../../../services/aluno.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-aluno-form',
@@ -14,18 +15,27 @@ export class AlunoFormComponent implements OnInit {
   
   aluno: Aluno = new Aluno();
  
-  ngOnInit() {
-  }
+  ngOnInit() {  }
 
   Cadastrar(){
+    
+    if(this.aluno.cpf == null || this.aluno.matricula == null || 
+      this.aluno.dataNascimento == null || this.aluno.nome == null){
+        alert("Preencha Todos os Campos")
+        return;
+    }
+
     this.alunoService.cadastrar(this.aluno)
     .subscribe(data => {
       alert("Cadastrado com Sucesso!");
       this.router.navigate(["alunos"]);
     },
     err => {
-      console.log(err);
-      alert(err.error.message); 
+      if(err.error.errors[0]){
+        alert(err.error.errors[0].defaultMessage);
+        return;
+      }
+      alert(err.error.message);
     })
   }
 

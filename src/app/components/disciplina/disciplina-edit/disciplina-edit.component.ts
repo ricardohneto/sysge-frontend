@@ -22,6 +22,13 @@ export class DisciplinaEditComponent implements OnInit {
   }
 
   Atualizar(disciplina:Disciplina) {
+
+    if(disciplina.nome == "" || disciplina.descricao == "" || 
+      disciplina.cargaHoraria == 0 || disciplina.idProfessor == ""){
+        alert("Preencha Todos os Campos")
+        return;
+    }
+
     this.service.atualizar(disciplina)
     .subscribe(data => {
       this.disciplina = data;
@@ -29,7 +36,10 @@ export class DisciplinaEditComponent implements OnInit {
       this.router.navigate(["disciplinas"]);
     },
     err => {
-      console.log(err);
+      if(err.error.errors[0]){
+        alert(err.error.errors[0].defaultMessage);
+        return;
+      }
       alert(err.error.message); 
     })
   }

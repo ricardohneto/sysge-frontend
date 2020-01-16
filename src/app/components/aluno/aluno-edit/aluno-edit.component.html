@@ -7,25 +7,91 @@
     <div class="card-header">
       <h3>Editar Aluno</h3>
     </div>
+
     <div class="card-body">
       <form action="">
+
         <div class="form-group">
           <label for="">Nome</label>
-          <input [(ngModel)]="aluno.nome" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+          <input id="name" name="name" type="text" class="form-control"
+          placeholder="Nome Completo" required maxlength="100" #name="ngModel" 
+          [(ngModel)]="aluno.nome" [ngModelOptions]="{standalone: true}">
+
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+        
+            <div *ngIf="name.errors.required">
+              Nome é obrigatório
+            </div>
+
+            <div *ngIf="name.errors.maxlength">
+              Nome grande demais
+            </div>
+
+          </div>
+
         </div>
+
         <div class="form-group">
           <label for="">CPF</label>
-          <input [(ngModel)]="aluno.cpf" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+          <input id="cpf" name="cpf" type="text" class="form-control"
+          placeholder="Ex: 00000000000" required minlength="11" maxlength="11" #cpf="ngModel"
+          [(ngModel)]="aluno.cpf" [ngModelOptions]="{standalone: true}">
+
+          <div *ngIf="cpf.invalid && (cpf.dirty || cpf.touched)" class="alert alert-danger">
+        
+            <div *ngIf="cpf.errors.required">
+              CPF é obrigatório
+            </div>
+
+            <div *ngIf="!cpf.errors.valid">
+              CPF invalido
+            </div>
+
+            <div *ngIf="(cpf.errors.maxlength || cpf.errors.minlength)">
+              Necessario 11 números
+            </div>
+
+          </div>
+
         </div>
+
         <div class="form-group">
           <label for="">Matricula</label>
-          <input [(ngModel)]="aluno.matricula" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+          <input id="matricula" name="matricula" type="text" class="form-control"
+          placeholder="Ex: 000000" required minlength="6" maxlength="6" #matricula="ngModel"
+          [(ngModel)]="aluno.matricula" [ngModelOptions]="{standalone: true}">
+        
+          <div *ngIf="matricula.invalid && (matricula.dirty || matricula.touched)"
+          class="alert alert-danger">
+        
+            <div *ngIf="matricula.errors.required">
+              Matricula é obrigatório
+            </div>
+
+            <div *ngIf="(matricula.errors.maxlength || matricula.errors.minlength)">
+              Necessario 6 números
+            </div>
+
+          </div>
         </div> 
+
         <div class="form-group">
           <label for="">Data Nascimento</label>
-          <input [(ngModel)]="aluno.dataNascimento" [ngModelOptions]="{standalone: true}" type="date" data-date="" data-date-format="yyyy-mm-dd" class="form-control">
+          <input id="data" name="data" type="date" data-date="" data-date-format="yyyy-mm-dd" class="form-control"
+          required #data="ngModel"
+          [(ngModel)]="aluno.dataNascimento" [ngModelOptions]="{standalone: true}">
+        
+          <div *ngIf="data.invalid && (data.dirty || data.touched)" class="alert alert-danger">
+        
+            <div *ngIf="data.errors.required">
+              Data de Nascimento é obrigatório
+            </div>
+
+          </div>
         </div>
+
         <button (click)="Atualizar(aluno)" class="btn btn-outline-warning">Atualizar</button>
+
       </form>
     </div>
   </div>

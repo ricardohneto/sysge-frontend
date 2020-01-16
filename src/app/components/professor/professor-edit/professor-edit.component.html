@@ -9,23 +9,82 @@
     </div>
     <div class="card-body">
       <form action="">
+
         <div class="form-group">
           <label for="">Nome</label>
-          <input [(ngModel)]="professor.nome" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+          <input id="name" name="name" type="text" class="form-control"
+          placeholder="Nome Completo" required maxlength="50" #name="ngModel"
+          [(ngModel)]="professor.nome" [ngModelOptions]="{standalone: true}">
+        
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+        
+            <div *ngIf="name.errors.required">
+              Nome é obrigatório
+            </div>
+
+            <div *ngIf="name.errors.maxlength">
+              Nome grande demais
+            </div>
+
+          </div>
         </div>
+
         <div class="form-group">
           <label for="">Area</label>
-          <input [(ngModel)]="professor.area" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+          <input id="area" name="area" type="text" class="form-control"
+          placeholder="Ex: Humanas" required maxlength="200" #area="ngModel"
+          [(ngModel)]="professor.area" [ngModelOptions]="{standalone: true}">
+        
+          <div *ngIf="area.invalid && (area.dirty || area.touched)" class="alert alert-danger">
+        
+            <div *ngIf="area.errors.required">
+              Area de Atuação é obrigatório
+            </div>
+
+            <div *ngIf="(area.errors.maxlength)">
+              Máximo de 200 caracteres
+            </div>
+
+          </div>
         </div>
+
         <div class="form-group">
-          <label for="">Matricula</label>
-          <input [(ngModel)]="professor.matricula" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+          <label for="">Matricula</label> 
+          <input id="matricula" name="matricula" type="text" class="form-control"
+          placeholder="Ex: 000000" required minlength="6" maxlength="6" #matricula="ngModel"
+          [(ngModel)]="professor.matricula" [ngModelOptions]="{standalone: true}">
+        
+          <div *ngIf="matricula.invalid && (matricula.dirty || matricula.touched)"
+          class="alert alert-danger">
+        
+            <div *ngIf="matricula.errors.required">
+              Matricula é obrigatório
+            </div>
+
+            <div *ngIf="(matricula.errors.maxlength || matricula.errors.minlength)">
+              Necessario 6 números
+            </div>
+
+          </div>
         </div> 
+
         <div class="form-group">
           <label for="">Data Nascimento</label>
-          <input [(ngModel)]="professor.dataNascimento" [ngModelOptions]="{standalone: true}" type="date" data-date="" data-date-format="yyyy-mm-dd" class="form-control">
+          <input id="data" name="data" type="date" data-date="" data-date-format="yyyy-mm-dd" class="form-control"
+          required #data="ngModel"
+          [(ngModel)]="professor.dataNascimento" [ngModelOptions]="{standalone: true}">
+        
+          <div *ngIf="data.invalid && (data.dirty || data.touched)" class="alert alert-danger">
+        
+            <div *ngIf="data.errors.required">
+              Data de Nascimento é obrigatório
+            </div>
+
+          </div>
         </div>
+
         <button (click)="Atualizar(professor)" class="btn btn-outline-warning">Atualizar</button>
+
       </form>
     </div>
   </div>

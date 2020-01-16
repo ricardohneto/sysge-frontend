@@ -18,13 +18,23 @@ export class ProfessorFormComponent implements OnInit {
   }
 
   Cadastrar(){
+
+    if(this.professor.area == null || this.professor.matricula == null || 
+      this.professor.dataNascimento == null || this.professor.nome == null){
+        alert("Preencha Todos os Campos")
+        return;
+    }
+
     this.professorService.cadastrar(this.professor)
     .subscribe(data => {
       alert("Cadastrado com Sucesso!");
       this.router.navigate(["professores"]);
     },
     err => {
-      console.log(err);
+      if(err.error.errors[0]){
+        alert(err.error.errors[0].defaultMessage);
+        return;
+      }
       alert(err.error.message); 
     })
   }

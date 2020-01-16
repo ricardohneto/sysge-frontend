@@ -18,13 +18,24 @@ export class DisciplinaFormComponent implements OnInit {
   }
 
   Cadastrar(){
+
+    if(this.disciplina.nome == null || this.disciplina.descricao == null || 
+      this.disciplina.cargaHoraria == null || this.disciplina.ativa == null || 
+      this.disciplina.idProfessor == null){
+        alert("Preencha Todos os Campos")
+        return;
+    }
+
     this.disciplinaService.cadastrar(this.disciplina)
     .subscribe(data => {
       alert("Cadastrada com Sucesso!");
       this.router.navigate(["disciplinas"]);
     },
     err => {
-      console.log(err);
+      if(err.error.errors[0]){
+        alert(err.error.errors[0].defaultMessage);
+        return;
+      }
       alert(err.error.message); 
     })
   }

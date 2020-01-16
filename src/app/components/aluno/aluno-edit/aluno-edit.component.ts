@@ -22,6 +22,13 @@ export class AlunoEditComponent implements OnInit {
   }
 
   Atualizar(aluno: Aluno){
+
+    if(aluno.cpf == "" || aluno.matricula == "" || 
+      aluno.dataNascimento.toString() == "" || aluno.nome == ""){
+        alert("Preencha Todos os Campos")
+        return;
+    }
+
     this.service.atualizar(aluno)
     .subscribe(data => {
       this.aluno = data;
@@ -29,7 +36,10 @@ export class AlunoEditComponent implements OnInit {
       this.router.navigate(["alunos"]);
     },
     err => {
-      console.log(err);
+      if(err.error.errors[0]){
+        alert(err.error.errors[0].defaultMessage);
+        return;
+      }
       alert(err.error.message); 
     })
   }
