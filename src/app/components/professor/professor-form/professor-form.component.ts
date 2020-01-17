@@ -31,7 +31,7 @@ export class ProfessorFormComponent implements OnInit {
       this.router.navigate(["professores"]);
     },
     err => {
-      if(err.error.errors[0]){
+      if(err.error.errors){
         alert(err.error.errors[0].defaultMessage);
         return;
       }

@@ -31,7 +31,7 @@ export class AlunoFormComponent implements OnInit {
       this.router.navigate(["alunos"]);
     },
     err => {
-      if(err.error.errors[0]){
+      if(err.error.errors){
         alert(err.error.errors[0].defaultMessage);
         return;
       }
