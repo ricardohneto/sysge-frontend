@@ -105,7 +105,9 @@
           </div>
         </div>
 
-        <button (click)="Cadastrar()" class="btn btn-outline-danger">Cadastrar</button>
+        <button *ngIf="disciplina.id == null" (click)="Cadastrar()" class="btn btn-outline-danger">Cadastrar</button>
+
+        <button *ngIf="disciplina.id != null" (click)="Atualizar(disciplina)" class="btn btn-outline-warning">Atualizar</button>
 
       </form>
     </div>

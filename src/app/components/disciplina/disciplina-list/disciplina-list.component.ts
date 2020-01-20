@@ -22,7 +22,7 @@ export class DisciplinaListComponent implements OnInit {
 
   Editar(disciplina: Disciplina){
     this.service.setDisciplina(disciplina);
-    this.router.navigate(["disciplinas/editar"]);
+    this.router.navigate(["disciplinas/cadastrar"]);
   }
 
   Delete(disciplina:Disciplina){

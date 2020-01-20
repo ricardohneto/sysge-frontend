@@ -22,7 +22,7 @@ export class AlunoListComponent implements OnInit {
 
   Editar(aluno:Aluno){
     this.service.setAluno(aluno);
-    this.router.navigate(['/alunos/editar']);
+    this.router.navigate(['/alunos/cadastrar']);
   }
 
   Delete(aluno:Aluno){

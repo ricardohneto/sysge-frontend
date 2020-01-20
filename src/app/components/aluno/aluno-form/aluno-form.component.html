@@ -88,8 +88,10 @@
           </div>
         </div>
 
-        <button (click)="Cadastrar()" class="btn btn-outline-danger">Cadastrar</button>
+        <button *ngIf="aluno.id == null" (click)="Cadastrar()" class="btn btn-outline-danger">Cadastrar</button>
       
+        <button *ngIf="aluno.id != null" (click)="Atualizar(aluno)" class="btn btn-outline-warning">Atualizar</button>
+
       </form>
     </div>
   </div>

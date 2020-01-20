@@ -22,7 +22,7 @@ export class ProfessorListComponent implements OnInit {
 
   Editar(professor:Professor){
     this.service.setProfessor(professor);
-    this.router.navigate(["professores/editar"]);
+    this.router.navigate(["professores/cadastrar"]);
   }
 
   Delete(professor:Professor){
