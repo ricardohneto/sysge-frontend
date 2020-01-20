@@ -27,7 +27,6 @@ export class AvaliacaoListComponent implements OnInit {
       alert("Avaliação Excluida com Sucesso!");
     },
     err => {
-      console.log(err); 
       alert(err.error.message); 
     })
   }
