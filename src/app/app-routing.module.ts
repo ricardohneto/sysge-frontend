@@ -1,3 +1,5 @@
+import { AvaliacaoFormComponent } from './components/avaliacao/avaliacao-form/avaliacao-form.component';
+import { AvaliacaoListComponent } from './components/avaliacao/avaliacao-list/avaliacao-list.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -26,6 +28,9 @@ const routes: Routes = [
   {path:'professores', component: ProfessorListComponent},
   {path:'professores/detalhes', component: ProfessorDetailComponent},
   {path:'professores/cadastrar', component: ProfessorFormComponent},
+
+  {path:'avaliacoes', component: AvaliacaoListComponent},
+  {path:'avaliacoes/cadastrar', component: AvaliacaoFormComponent}
 ];
 
 @NgModule({
@@ -45,4 +50,6 @@ export const routingComponents = [
   ProfessorListComponent,
   ProfessorDetailComponent,
   ProfessorFormComponent,
+  AvaliacaoListComponent,
+  AvaliacaoFormComponent
 ]

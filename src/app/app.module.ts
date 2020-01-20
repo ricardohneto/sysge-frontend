@@ -12,6 +12,9 @@ import { ProfessorComponent } from './components/professor/professor.component';
 import { AlunoService } from './services/aluno.service';
 import { DisciplinaService } from './services/disciplina.service';
 import { ProfessorService } from './services/professor.service';
+import { AvaliacaoComponent } from './components/avaliacao/avaliacao.component';
+import { AvaliacaoListComponent } from './components/avaliacao/avaliacao-list/avaliacao-list.component';
+import { AvaliacaoFormComponent } from './components/avaliacao/avaliacao-form/avaliacao-form.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,9 @@ import { ProfessorService } from './services/professor.service';
     AlunoComponent,
     ProfessorComponent,
     routingComponents,
+    AvaliacaoComponent,
+    AvaliacaoListComponent,
+    AvaliacaoFormComponent,
   ],
   imports: [
     BrowserModule,

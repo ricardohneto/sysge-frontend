@@ -1,0 +1,71 @@
+<app-avaliacao></app-avaliacao>
+
+<div class="container col-md-6">
+    <div class="card">
+      <div class="card-header text-center">
+        <h3>Nova Avaliação</h3>
+      </div>
+  
+      <div class="card-body">
+        <form action="">
+  
+          <div class="form-group">
+            <label for="">Identificador Disciplina</label>
+            <input id="idDisciplina" name="idDisciplina" type="number" class="form-control"
+            placeholder="Ex: 00" required #idDisciplina="ngModel"
+            [(ngModel)]="avaliacao.idDisciplina" [ngModelOptions]="{standalone: true}">
+          
+            <div *ngIf="idDisciplina.invalid && (idDisciplina.dirty || idDisciplina.touched)" class="alert alert-danger">
+              Campo obrigatório
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="">Identificador Aluno</label>
+            <input id="idAluno" name="idAluno" type="number" class="form-control"
+            placeholder="Ex: 00" required #idAluno="ngModel"
+            [(ngModel)]="avaliacao.idAluno" [ngModelOptions]="{standalone: true}">
+          
+            <div *ngIf="idAluno.invalid && (idAluno.dirty || idAluno.touched)" class="alert alert-danger">
+                Campo obrigatório  
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="">Nota</label>
+            <input id="nota" name="nota" type="number" class="form-control"
+            placeholder="Ex: 0 a 10" required min = 0 max = 10 #nota="ngModel"
+            [(ngModel)]="avaliacao.nota" [ngModelOptions]="{standalone: true}">
+          
+            <div *ngIf="nota.invalid && (nota.dirty || nota.touched)" class="alert alert-danger">
+                Campo obrigatório
+            </div>
+
+            <div *ngIf="avaliacao.nota > 10 || nota < 0" class="alert alert-danger">
+                Minimo 0, Maximo 10
+              </div>
+
+          </div>
+          
+          <div class="form-group">
+            <label for="">Data Avaliação</label>
+            <input id="data" name="data" type="date" data-date="" data-date-format="yyyy-mm-dd" class="form-control"
+            required #data="ngModel"
+            [(ngModel)]="avaliacao.dataAplicacao" [ngModelOptions]="{standalone: true}">
+          
+            <div *ngIf="data.invalid && (data.dirty || data.touched)" class="alert alert-danger">
+          
+              <div *ngIf="data.errors.required">
+                Data da Avaliação é obrigatório
+              </div>
+  
+            </div>
+          </div>
+  
+          <button (click)="Cadastrar()" class="btn btn-outline-danger">Cadastrar</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  

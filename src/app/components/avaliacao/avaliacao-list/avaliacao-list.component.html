@@ -1,0 +1,37 @@
+<app-avaliacao></app-avaliacao>
+
+<br>
+
+<div class="container">
+  <div class="card">
+    <div class="card-header text-center">
+      <h3>Avaliações</h3>
+    </div>
+    <div class="card-body">
+      <table class="table table-hover">
+        <thead>
+          <tr class="text-center">
+            <th>DISCIPLINA</th>
+            <th>ALUNO</th>
+            <th>NOTA</th>
+            <th>DATA AVALIAÇÃO</th>
+            <th>AÇÕES</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let avaliacao of avaliacoes" class="text-center">
+            <td>{{ avaliacao.nomeDisciplina }}</td>
+            <td>{{ avaliacao.nomeAluno }}</td>
+            <td>{{ avaliacao.nota }}</td>
+            <td>{{ avaliacao.dataAplicacao }}</td>
+            <td>
+              <button (click)="Delete(avaliacao)" type="button" class="btn btn-outline-danger">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
