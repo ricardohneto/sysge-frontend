@@ -32,7 +32,6 @@ export class ProfessorListComponent implements OnInit {
       alert("Professor Excluido com Sucesso!");
     },
     err => {
-      console.log(err);
       alert(err.error.message); 
     })
   }

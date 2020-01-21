@@ -12,25 +12,17 @@
         <form action="">
   
           <div class="form-group">
-            <label for="">Identificador Disciplina</label>
-            <input id="idDisciplina" name="idDisciplina" type="number" class="form-control"
-            placeholder="Ex: 00" required #idDisciplina="ngModel"
-            [(ngModel)]="avaliacao.idDisciplina" [ngModelOptions]="{standalone: true}">
-          
-            <div *ngIf="idDisciplina.invalid && (idDisciplina.dirty || idDisciplina.touched)" class="alert alert-danger">
-              Campo obrigatório
-            </div>
+            <label for="">Seleciona a Disciplina</label>
+            <select id="idDisciplina" name="idDisciplina" class="form-control" [(ngModel)]="avaliacao.idDisciplina">
+              <option *ngFor="let disciplina of disciplinas" [value]="disciplina.id">{{ disciplina.nome }}</option>
+            </select>  
           </div>
 
           <div class="form-group">
-            <label for="">Identificador Aluno</label>
-            <input id="idAluno" name="idAluno" type="number" class="form-control"
-            placeholder="Ex: 00" required #idAluno="ngModel"
-            [(ngModel)]="avaliacao.idAluno" [ngModelOptions]="{standalone: true}">
-          
-            <div *ngIf="idAluno.invalid && (idAluno.dirty || idAluno.touched)" class="alert alert-danger">
-                Campo obrigatório  
-            </div>
+            <label for="">Seleciona o Aluno</label>
+            <select id="idAluno" name="idAluno" class="form-control" [(ngModel)]="avaliacao.idAluno" >
+              <option *ngFor="let aluno of alunos" [value]="aluno.id" >{{ aluno.nome }}</option>
+            </select>  
           </div>
 
           <div class="form-group">
@@ -64,7 +56,9 @@
             </div>
           </div>
   
-          <button (click)="Cadastrar()" class="btn btn-outline-danger">Cadastrar</button>
+          <button *ngIf="avaliacao.idAluno == null && avaliacao.idDisciplina == null" (click)="Cadastrar()" class="btn btn-outline-danger">Cadastrar</button>
+      
+        <button *ngIf="avaliacao.idAluno != null && avaliacao.idDisciplina != null" (click)="Atualizar(avaliacao)" class="btn btn-outline-warning">Atualizar</button>
 
         </form>
       </div>

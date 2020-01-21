@@ -20,6 +20,12 @@ export class AvaliacaoListComponent implements OnInit {
     })
   }
 
+  Editar(avaliacao:Avaliacao){
+    this.service.setAvaliacao(avaliacao);
+    this.router.navigate(['/avaliacoes/cadastrar']);
+  }
+
+
   Delete(avaliacao:Avaliacao){
     this.service.deletar(avaliacao)
     .subscribe(data => {

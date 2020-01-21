@@ -32,7 +32,6 @@ export class AlunoListComponent implements OnInit {
       alert("Aluno Excluido com Sucesso!");
     },
     err => {
-      console.log(err); 
       alert(err.error.message); 
     })
   }

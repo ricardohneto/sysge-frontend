@@ -24,4 +24,16 @@ export class AvaliacaoService {
     return this.http.delete<Avaliacao>(this.URL+"/"+avaliacao.idDisciplina+"/"+avaliacao.idAluno);
   }
 
+  atualizar(avaliacao:Avaliacao){
+    return this.http.put<Avaliacao>(this.URL+"/", avaliacao);
+  }
+
+  setAvaliacao(avaliacao:Avaliacao){
+    this.avaliacao = avaliacao;
+  }
+
+  getAvaliacao(){
+    return this.avaliacao;  
+  }
+
 }
