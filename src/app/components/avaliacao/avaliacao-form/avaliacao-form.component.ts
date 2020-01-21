@@ -20,8 +20,12 @@ export class AvaliacaoFormComponent implements OnInit {
   avaliacao: Avaliacao = new Avaliacao();
   disciplinas: any[];
   alunos: any[];
+  atualizar: boolean;
 
   ngOnInit() {
+
+    this.Editar();
+
     this.disciplinaService.getDisciplinas()
     .subscribe(data=>{
       this.disciplinas = data;
@@ -30,20 +34,20 @@ export class AvaliacaoFormComponent implements OnInit {
     this.alunoService.getAlunos()
     .subscribe(data=>{
       this.alunos = data;
-    })
-
-    this.Editar();
-
+    }) 
   }
 
   Editar(){
     this.avaliacao = this.avaliacaoService.getAvaliacao();
+    if(this.avaliacao.dataAplicacao != null) {
+      this.atualizar = true;
+    }   
     this.avaliacaoService.setAvaliacao(new Avaliacao());
   }
 
   Atualizar(avaliacao: Avaliacao){
 
-    if(this.avaliacao.dataAplicacao == null || this.avaliacao.nota == undefined){
+    if(this.avaliacao.dataAplicacao.toString() == "" || this.avaliacao.nota == undefined){
         alert("Preencha Todos os Campos")
         return;
     }

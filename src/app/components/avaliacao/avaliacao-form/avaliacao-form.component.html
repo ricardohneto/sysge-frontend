@@ -56,9 +56,9 @@
             </div>
           </div>
   
-          <button *ngIf="avaliacao.idAluno == null && avaliacao.idDisciplina == null" (click)="Cadastrar()" class="btn btn-outline-danger">Cadastrar</button>
+          <button *ngIf="!atualizar" (click)="Cadastrar()" class="btn btn-outline-danger">Cadastrar</button>
       
-        <button *ngIf="avaliacao.idAluno != null && avaliacao.idDisciplina != null" (click)="Atualizar(avaliacao)" class="btn btn-outline-warning">Atualizar</button>
+        <button *ngIf="atualizar" (click)="Atualizar(avaliacao)" class="btn btn-outline-warning">Atualizar</button>
 
         </form>
       </div>
